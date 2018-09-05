@@ -1,0 +1,11 @@
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.csprojResolveAssemblyReference.cache
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.csproj.CoreCompileInputs.cache
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.AssemblyInfoInputs.cache
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.AssemblyInfo.cs
+/home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.deps.json
+/home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.runtimeconfig.json
+/home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.runtimeconfig.dev.json
+/home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.dll
+/home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.pdb
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.dll
+/home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.pdb
