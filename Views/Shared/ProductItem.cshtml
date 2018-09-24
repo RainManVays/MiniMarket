@@ -1,0 +1,18 @@
+﻿@model MiniMarket.Models.Product
+
+@if (Model.isVisible)
+{
+<div class="col-md-1 product__item">
+    @if (Model.Image != null)
+    {
+        <div class="product__item-image"> @Model.Image</div>
+    }
+    else
+    {
+        <div class="product__item-image"> NAN</div>
+    }
+    <div class="product__item-name"> @Model.Name</div>
+    <div class="product__item-price"> @Model.Price</div>
+</div>
+
+}

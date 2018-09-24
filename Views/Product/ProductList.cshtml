@@ -1,0 +1,10 @@
+﻿@using MiniMarket.Models;
+@model System.Collections.Generic.List<Product>;
+@{
+    ViewData["Title"] = "ProductList";
+}
+
+@foreach(var item in Model)
+{
+    Html.RenderPartial("ProductItem", item);
+}

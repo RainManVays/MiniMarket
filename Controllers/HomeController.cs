@@ -10,14 +10,9 @@ namespace MiniMarket.Controllers
 {
     public class HomeController : Controller
     {
-        List<Category> _cat= new List<Category>{
-           new Category{Id=1,Name="Swimsuit"},
-           new Category{Id=2,Name="Hats"},
-           new Category{Id=3,Name="Tops"},
-       };
         public IActionResult Index()
         {
-            return View(_cat);
+            return View();
         }
 
         public IActionResult About()

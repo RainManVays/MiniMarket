@@ -9,3 +9,14 @@
 /home/ldf/CodeProjects/c#/MiniMarket/bin/Debug/netcoreapp2.0/MiniMarket.pdb
 /home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.dll
 /home/ldf/CodeProjects/c#/MiniMarket/obj/Debug/netcoreapp2.0/MiniMarket.pdb
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Debug\netcoreapp2.0\MiniMarket.deps.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Debug\netcoreapp2.0\MiniMarket.runtimeconfig.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Debug\netcoreapp2.0\MiniMarket.runtimeconfig.dev.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Debug\netcoreapp2.0\MiniMarket.dll
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Debug\netcoreapp2.0\MiniMarket.pdb
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.csprojResolveAssemblyReference.cache
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.csproj.CoreCompileInputs.cache
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.AssemblyInfoInputs.cache
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.AssemblyInfo.cs
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.dll
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Debug\netcoreapp2.0\MiniMarket.pdb

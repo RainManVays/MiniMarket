@@ -33,3 +33,16 @@
         display: none;
     }
 }
+
+.menu{
+    height:100px;
+} 
+.menu__item{
+    float:left;
+}
+
+.product__item {
+    height: 150px;
+    width: 150px;
+   
+}
