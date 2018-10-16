@@ -17,33 +17,21 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">MiniMarket</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="~/images/Ravenclav.jpg" width="30" height="30" alt="" />MiniMarker
+        </a>
+        <div class="navbar-nav-scroll">
+            <ul class="navbar-nav">
+                @await Component.InvokeAsync("CategoryMenu")
+            </ul>
         </div>
     </nav>
-    <div class="container body-content">
-        @await Component.InvokeAsync("CategoryMenu")
+    <div class="container product-content">
         @RenderBody()
         <hr />
-
     </div>
-    <footer class="container">
+    <footer class="container-fluid">
         <p>&copy; 2018 - MiniMarket</p>
     </footer>
     <environment include="Development">

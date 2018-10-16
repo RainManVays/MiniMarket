@@ -12,7 +12,7 @@ namespace MiniMarket.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToActionPermanent("ProductList", "Product",new { category = 0 });
         }
 
         public IActionResult About()

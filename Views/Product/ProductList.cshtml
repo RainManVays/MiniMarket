@@ -1,10 +1,14 @@
 ﻿@using MiniMarket.Models;
-@model System.Collections.Generic.List<Product>;
+@model System.Collections.Generic.IEnumerable<Product>;
 @{
     ViewData["Title"] = "ProductList";
 }
+<div class="container">
+        <div class="card-group">
+            @foreach (var item in Model)
+            {
+                Html.RenderPartial("ProductItem", item);
+            }
+        </div>
+</div>
 
-@foreach(var item in Model)
-{
-    Html.RenderPartial("ProductItem", item);
-}
