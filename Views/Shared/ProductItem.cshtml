@@ -7,7 +7,7 @@
         @if (Model.Image != null)
     {
 
-        <img class="card-img-top product__item-image" src="~/images/Ravenclav.jpg" />
+        <img class="card-img-top product__item-image" src="@Url.Action("GetProductImage","Product",new { Model.Id })" />
 
 }
 else

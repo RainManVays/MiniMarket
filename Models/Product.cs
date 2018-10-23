@@ -11,6 +11,7 @@ namespace MiniMarket.Models
         public decimal Price {get;set;}
         public byte[] Image { get; set; }
        // public List<ProductAttribute> Attributes {get;set;}
+       public string MIMEType { get; set; }
         public bool isVisible {get;set;}
         public string Description { get; set; }
     }

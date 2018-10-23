@@ -25,6 +25,7 @@ namespace MiniMarket
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddMemoryCache();
            // var connection = @"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;";
           //  services.AddDbContext<ProductContext>(opt => opt.UseSqlServer(connection));
         }

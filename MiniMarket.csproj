@@ -22,6 +22,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Static\" />
+    <Folder Include="Views\Shared\Components\StockComponent\" />
   </ItemGroup>
 
   <ItemGroup>

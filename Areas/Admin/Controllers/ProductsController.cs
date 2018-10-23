@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MiniMarket.Context;
 using MiniMarket.Models;
+
 
 namespace MiniMarket.Areas.Admin.Controllers
 {
@@ -71,14 +73,23 @@ namespace MiniMarket.Areas.Admin.Controllers
         // POST: Data/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(Product product, IFormFile image)
         {
             try
             {
                 using (var context = new ProductContext())
                 {
                     var item = context.Products.FirstOrDefault(x => x.Id == product.Id);
-                    item.Name = product.Name;
+                    //item.Name = product.Name;
+                    if(image != null && image.Length > 0)
+                    {
+                        using(var memoryStream = new MemoryStream())
+                        {
+                            image.CopyTo(memoryStream);
+                            item.Image = memoryStream.ToArray();
+                            item.MIMEType = image.ContentType;
+                        }
+                    }
                     context.SaveChanges();
                 }
                 return RedirectToAction(nameof(Index));
@@ -92,7 +103,16 @@ namespace MiniMarket.Areas.Admin.Controllers
 
             }
         }
-        
+        public FileContentResult GetProductImage(int Id)
+        {
+            using (ProductContext context = new ProductContext())
+            {
+                var product = context.Products.FirstOrDefault(x => x.Id == Id);
+                if (product != null)
+                    return File(product.Image, product.MIMEType);
+            }
+            return null;
+        }
 
         // GET: Data/Delete/5
         public ActionResult Delete(int id)

@@ -17,44 +17,54 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Id" class="control-label"></label>
-            <input asp-for="Id" class="form-control" value="@Model.Id" />
+            <input asp-for="Id" name="Id" class="form-control" value="@Model.Id" />
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="CategoryId" class="control-label"></label>
-            <select asp-for="CategoryId" class="custom-select"  asp-items="@ViewBag.Categories"></select>
+            <select asp-for="CategoryId" name="CategoryId" class="custom-select"  asp-items="@ViewBag.Categories"></select>
             <span asp-validation-for="CategoryId" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Name" class="control-label"></label>
-            <input asp-for="Name" class="form-control" value="@Model.Name" />
+            <input asp-for="Name" name="Name" class="form-control" value="@Model.Name" />
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Discount" class="control-label"></label>
-            <input asp-for="Discount" class="form-control" value="@Model.Discount" />
+            <input asp-for="Discount" name="Discount" class="form-control" value="@Model.Discount" />
             <span asp-validation-for="Discount" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control"  value="@Model.Price" />
+            <input asp-for="Price" name="Price" class="form-control"  value="@Model.Price" />
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
         <div class="form-group">
+            @if (Model.Image == null)
+            {
+                @:None
+
+            }
+            else
+            {
+                  <img width="150" height="150" src="@Url.Action("GetProductImage","Products",new { Model.Id })" />
+            }
+
             <label asp-for="Image" class="control-label"></label>
-            <input asp-for="Image" class="form-control" />
+            <input asp-for="Image" name="image" type="file" class="form-control" />
             <span asp-validation-for="Image" class="text-danger"></span>
         </div>
         <div class="form-group">
             <div class="checkbox">
                 <label>
-                    <input asp-for="isVisible" /> @Html.DisplayNameFor(model => model.isVisible)
+                    <input name="isVisible" asp-for="isVisible" /> @Html.DisplayNameFor(model => model.isVisible)
                 </label>
             </div>
         </div>
         <div class="form-group">
             <label asp-for="Description" class="control-label"></label>
-            <input asp-for="Description" class="form-control" value="@Model.Description" />
+            <input asp-for="Description" name="Description" class="form-control" value="@Model.Description" />
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <div class="form-group">

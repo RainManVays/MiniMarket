@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniMarket.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace MiniMarket.Context
 {
-    public class CategoriesContext :DbContext
+    public class CategoryContext :DbContext
     {
         public virtual DbSet<Category> Categories { get; set; }
 

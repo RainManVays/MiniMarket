@@ -41,13 +41,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @item.Id
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @item.CategoryId
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                 @item.Name
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Discount)
@@ -56,7 +56,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                @if (item.Image == null)
+                {
+                        @:None
+                }
+                else
+                {
+                   <img width="100" height="100" src="@Url.Action("GetProductImage","Products",new { item.Id })" />
+                }
+
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.isVisible)
