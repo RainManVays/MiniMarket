@@ -1,11 +1,13 @@
 ﻿@model IEnumerable<MiniMarket.Models.Stock>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Stocks";
 }
 
-<h2>Index</h2>
+<h2>Stocks items</h2>
 
+
+<span>Corrent image size - 1920x560</span>
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +33,7 @@
                 }
                 else
                 {
-                   <img width="100" height="100" src="@Url.Action("GetStockImage","StockManagement",new { item.Id })" />
+                   <img width="200" height="100" src="@Url.Action("GetStockImage","StockManagement",new { item.Id })" />
                 }
 
             </td>

@@ -1,0 +1,99 @@
+﻿@model MiniMarket.Models.Order
+
+@{
+    ViewData["Title"] = "Корзина";
+}
+
+<h2>Корзина</h2>
+
+
+@if (Model.Items != null && Model.Items.Count>0)
+{
+    decimal totalPrice = 0;
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    Продукт
+                </th>
+                <th>
+                    Количество
+                </th>
+                <th>
+                    Цена за шт
+                </th>
+                <th>
+                    Цена за все
+                </th>
+                <th>
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (OrderItem item in Model.Items)
+    {
+            <tr>
+
+                <td>
+                    @if (item.Product.Image != null)
+        {
+            <img class="card-img-top order_product__item-image" src="@Url.Action("GetProductImage", "Product", new { item.Product.Id })" />
+
+}
+else
+{
+            <div class="product__item-image"> NAN</div>
+}
+                </td>
+                <td>
+                    @item.Product.Name
+                </td>
+                <td>
+                    @Html.ActionLink("-", "DecreaseCount", "Order", new { Id = item.Product.Id })
+                    @item.Count
+                    @Html.ActionLink("+", "IncreaseCount", "Order", new { Id = item.Product.Id })
+                </td>
+                <td>
+                    @item.Product.Price
+                </td>
+                <td>
+                    @(item.Product.Price * item.Count)
+                </td>
+                <td>
+                    @Html.ActionLink("X", "RemoveItem", "Order",new {Id=item.Product.Id})
+                </td>
+                @{totalPrice += item.Product.Price * item.Count;}
+            </tr>
+}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    Сумма заказа:
+                </td>
+                <td>
+                    @totalPrice
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                </td>
+                <td>
+
+                    @Html.ActionLink("Отправить заказ", "Complete", "Order")
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+else{
+   @:Корзина пуста
+}

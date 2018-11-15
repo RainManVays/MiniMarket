@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MiniMarket.Context;
@@ -9,6 +10,7 @@ using MiniMarket.Models;
 namespace MiniMarket.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class StockManagementController : Controller
     {
 

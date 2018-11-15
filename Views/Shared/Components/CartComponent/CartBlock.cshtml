@@ -1,0 +1,18 @@
+﻿<li class="nav-item" style="margin-left:10px;">
+
+    @if (ViewBag.Order != null && ViewBag.Order.Items.Count>0)
+    {
+        <a class="navbar-brand" href="@Url.Action("Index","Order")">
+            <img src="~/images/ic_add_shopping_cart_black_18dp.png" width="30" height="30" alt="" />
+        </a>
+       @:Сумма: @ViewBag.OrderSumm р
+    }
+    else
+    {
+        <a class="navbar-brand" href="@Url.Action("Index","Order")">
+            <img src="~/images/ic_shopping_cart_black_32dp.png" width="30" height="30" alt="" />
+        </a>
+    }
+
+
+</li>

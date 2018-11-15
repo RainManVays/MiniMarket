@@ -1,22 +1,8 @@
 ﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
     Admin Area
     <p> @Html.ActionLink("Управление категориями", "Index", "Categories") </p>
     <p> @Html.ActionLink("Управление продукцией", "Index", "Products") </p>
     <p> @Html.ActionLink("Управление акциями", "Index", "StockManagement") </p>
-    <p>Управление заказами</p>
-    <p>Управление пользователями</p>
+    <p> @Html.ActionLink("Управление заказами", "Index", "StockManagement") </p>
+    <p> @Html.ActionLink("Управление пользователями", "Index", "StockManagement") </p>
     <p>Просмотр статистики</p>
-</body>
-</html>

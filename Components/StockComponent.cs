@@ -27,7 +27,7 @@ namespace MiniMarket.Components
                 }
             }
 
-            return View("Menu", _cache.Get(0));
+            return View("Stock", _cache.Get(0));
         }
 
 

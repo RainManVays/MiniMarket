@@ -3,13 +3,16 @@
 @{
     ViewData["Title"] = "ProductList";
 }
-
+<div class="container text-center stock-content">
+    @await Component.InvokeAsync("StockComponent")
+    <hr />
+</div>
 <div class="container">
-        <div class="card-group">
-            @foreach (var item in Model)
-            {
-                Html.RenderPartial("ProductItem", item);
-            }
-        </div>
+    <div class="card-group">
+        @foreach (var item in Model)
+        {
+            Html.RenderPartial("ProductItem", item);
+        }
+    </div>
 </div>
 

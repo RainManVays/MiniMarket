@@ -2,36 +2,37 @@
 
 @if (Model.isVisible)
 {
-<div class="col-md-3 product__item">
-    <div class="card mb-3 box-shadow">
-        @if (Model.Image != null)
-    {
-
-        <img class="card-img-top product__item-image" src="@Url.Action("GetProductImage","Product",new { Model.Id })" />
-
-}
-else
-{
-    <div class="product__item-image"> NAN</div>
-}
-        <div class="card-body">
-            <h4 class="card-title">@Model.Name</h4>
-            <h5 class="card-subtitle">@Model.Price руб / 100гр</h5>
-            <p class="card-text">@Model.Description</p>
-        </div>
-        <div class="card-footer bg-transparent">
-            <div class="btn-group">
-                <button class="btn btn-sm btn-outline-secondary" type="button">+</button>
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="0" aria-label="0" aria-describedby="btnGroupAddon">
-                </div>
-                <button class="btn btn-sm btn-outline-secondary" type="button">-</button>
-                <button class="btn btn-sm btn-outline-primary" type="button">Купить</button>
+    <div class="col-md-3 product__item">
+        <div class="card mb-3 box-shadow">
+            @if (Model.Image != null)
+            {
+                <img class="card-img-top product__item-image" src="@Url.Action("GetProductImage","Product",new { Model.Id })" />
+            }
+            else
+            {
+                <div class="product__item-image"> NAN</div>
+            }
+            <div class="card-body">
+                <h4 class="card-title">@Model.Name</h4>
+                <h5 class="card-subtitle">@Model.Price руб / 100гр</h5>
+                <p class="card-text">@Model.Description</p>
             </div>
+            <div class="card-footer bg-transparent">
+                <div class="btn-group">
+                    <form asp-action="AddToOrder" asp-controller="Order" method="POST">
+                        @Html.AntiForgeryToken()
+                        <div>
+                                @Html.HiddenFor(x => x.Id)
+                            <div class="form-group">
+                                    <input type="submit" value="Купить" class="btn btn-sm btn-outline-danger" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
 }

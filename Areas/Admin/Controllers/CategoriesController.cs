@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniMarket.Context;
 using MiniMarket.Models;
@@ -9,6 +10,7 @@ using MiniMarket.Models;
 namespace MiniMarket.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class CategoriesController : Controller
     {
         public IActionResult Index()

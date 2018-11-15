@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MiniMarket.Models;
 using MiniMarket.Context;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace MiniMarket
 {
@@ -25,9 +27,20 @@ namespace MiniMarket
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddMemoryCache();
-           // var connection = @"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;";
-          //  services.AddDbContext<ProductContext>(opt => opt.UseSqlServer(connection));
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            // var connection = @"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;";
+            //  services.AddDbContext<ProductContext>(opt => opt.UseSqlServer(connection));
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+            {
+                x.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Admin/Account/Login");
+            });
+            services.AddAntiforgery(options =>
+            {
+                options.FormFieldName = "AntiforgeryFieldname";
+                options.HeaderName = "X-CSRF-TOKEN-HEADERNAME";
+                options.SuppressXFrameOptionsHeader = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +54,10 @@ namespace MiniMarket
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+           // app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -56,8 +71,6 @@ namespace MiniMarket
                     template: "{controller=Home}/{action=Index}/{id?}"
                     );
             });
-            
-
 
         }
     }
