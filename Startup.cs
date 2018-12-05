@@ -11,6 +11,7 @@ using MiniMarket.Models;
 using MiniMarket.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using MiniMarket.Infrastructure;
 
 namespace MiniMarket
 {
@@ -26,6 +27,7 @@ namespace MiniMarket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbCont(Configuration);
             services.AddMvc();
             services.AddDistributedMemoryCache();
             services.AddSession();
@@ -41,6 +43,7 @@ namespace MiniMarket
                 options.HeaderName = "X-CSRF-TOKEN-HEADERNAME";
                 options.SuppressXFrameOptionsHeader = false;
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

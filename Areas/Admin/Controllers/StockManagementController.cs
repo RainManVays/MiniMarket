@@ -13,35 +13,32 @@ namespace MiniMarket.Areas.Admin.Controllers
     [Authorize]
     public class StockManagementController : Controller
     {
+        StockContext _context;
 
+        public StockManagementController(StockContext context)
+        {
+            _context = context;
+        }
         // GET: Data
         public ActionResult Index()
         {
-            using (var context = new StockContext())
-            {
-                return View(context.Stocks.ToList());
-            }
-
+           return View(_context.Stocks.ToList());
         }
 
         // GET: Data/Create
         public ActionResult Create()
         {
-            using (var context = new StockContext())
-            {
-                var stock = context.Stocks.FirstOrDefault();
+                var stock = _context.Stocks.FirstOrDefault();
                 if (stock == null)
                 {
                     return View(new Stock { Id = 1 });
                 }
                 else
                 {
-                    int id = context.Stocks.Max(x => x.Id);
+                    int id = _context.Stocks.Max(x => x.Id);
                     id++;
                     return View(new Stock { Id = id });
                 }
-                
-            }
 
         }
 
@@ -52,8 +49,6 @@ namespace MiniMarket.Areas.Admin.Controllers
         {
             try
             {
-                using (var context = new StockContext())
-                {
                     if (image != null && image.Length > 0)
                     {
                         using (var memoryStream = new MemoryStream())
@@ -63,15 +58,13 @@ namespace MiniMarket.Areas.Admin.Controllers
                             stock.MIMEType = image.ContentType;
                         }
                     }
-                    context.Stocks.Add(new Stock
+                    _context.Stocks.Add(new Stock
                     {
                         Id = stock.Id,
                         Image=stock.Image,
                         MIMEType=stock.MIMEType
                     });
-                    context.SaveChanges();
-                }
-
+                    _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch(Exception e)
@@ -83,11 +76,7 @@ namespace MiniMarket.Areas.Admin.Controllers
         // GET: Data/Edit/5
         public ActionResult Edit(int id)
         {
-            using (var context = new StockContext())
-            {
-                return View(context.Stocks.FirstOrDefault(x => x.Id == id));
-            }
-
+          return View(_context.Stocks.FirstOrDefault(x => x.Id == id));
         }
 
         // POST: Data/Edit/5
@@ -97,9 +86,7 @@ namespace MiniMarket.Areas.Admin.Controllers
         {
             try
             {
-                using (var context = new StockContext())
-                {
-                    var item = context.Stocks.FirstOrDefault(x => x.Id == stock.Id);
+                    var item = _context.Stocks.FirstOrDefault(x => x.Id == stock.Id);
                     //item.Name = product.Name;
                     if (image != null && image.Length > 0)
                     {
@@ -110,39 +97,28 @@ namespace MiniMarket.Areas.Admin.Controllers
                             item.MIMEType = image.ContentType;
                         }
                     }
-                    context.SaveChanges();
-                }
+                    _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                using (var context = new StockContext())
-                {
                     return View(stock);
-                }
-
             }
         }
         public FileContentResult GetStockImage(int Id)
         {
-            using (StockContext context = new StockContext())
-            {
-                var stock = context.Stocks.FirstOrDefault(x => x.Id == Id);
-                if (stock != null)
-                    return File(stock.Image, stock.MIMEType);
-            }
+            var stock = _context.Stocks.FirstOrDefault(x => x.Id == Id);
+            if (stock != null)
+                return File(stock.Image, stock.MIMEType);
             return null;
         }
 
         // GET: Data/Delete/5
         public ActionResult Delete(int id)
         {
-            using (var context = new StockContext())
-            {
-                context.Stocks.Remove(context.Stocks.FirstOrDefault(x => x.Id == id));
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            _context.Stocks.Remove(_context.Stocks.FirstOrDefault(x => x.Id == id));
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Data/Delete/5

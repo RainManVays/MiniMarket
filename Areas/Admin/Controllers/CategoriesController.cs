@@ -13,17 +13,35 @@ namespace MiniMarket.Areas.Admin.Controllers
     [Authorize]
     public class CategoriesController : Controller
     {
+
+        CategoryContext _context;
+
+        public CategoriesController(CategoryContext context)
+        {
+            _context = context;
+        }
+
+
+
+
         public IActionResult Index()
         {
-            using(var context = new MiniMarketContext())
-            {
-                return View(context.Categories.ToList()); 
-            }
+            return View(_context.Categories.ToList()); 
         }
 
         public ActionResult Create()
         {
-            return View();
+            var category = _context.Categories.FirstOrDefault();
+            if (category == null)
+            {
+                return View(new Category { Id = 1 });
+            }
+            else
+            {
+                var maxId = _context.Categories.Max(x => x.Id);
+                maxId++;
+                return View(new Category { Id = maxId });
+            }
         }
 
         [HttpPost]
@@ -32,12 +50,9 @@ namespace MiniMarket.Areas.Admin.Controllers
         {
             try
             {
-                using (var context = new MiniMarketContext())
-                {
-                    context.Categories.Add(category);
-                    context.SaveChanges();
-                    return RedirectToAction("Index");
-                }
+                _context.Categories.Add(category);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {
@@ -46,10 +61,7 @@ namespace MiniMarket.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id)
         {
-            using (var context = new MiniMarketContext())
-            {
-                return View(context.Categories.FirstOrDefault(x=>x.Id==id));
-            }
+            return View(_context.Categories.FirstOrDefault(x=>x.Id==id));
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -57,30 +69,20 @@ namespace MiniMarket.Areas.Admin.Controllers
         {
             try
             {
-                using (var context = new MiniMarketContext())
-                {
-                    var item = context.Categories.FirstOrDefault(x => x.Id == category.Id);
+                    var item = _context.Categories.FirstOrDefault(x => x.Id == category.Id);
                     item = category;
-                    await context.SaveChangesAsync();
-                }
+                    await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                using (var context = new ProductContext())
-                {
-                    return View(category);
-                }
-
+               return View(category);
             }
         }
         public ActionResult Delete(int id)
         {
-            using(var context = new MiniMarketContext())
-            {
-                context.Categories.Remove(context.Categories.FirstOrDefault(x => x.Id == id));
-                context.SaveChanges();
-            }
+            _context.Categories.Remove(_context.Categories.FirstOrDefault(x => x.Id == id));
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

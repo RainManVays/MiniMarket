@@ -9,14 +9,17 @@ namespace MiniMarket.Controllers
 {
     public class StockController : Controller
     {
+        StockContext _stockContext;
+        public StockController(StockContext stockContext)
+        {
+            _stockContext = stockContext;
+        }
+
         public FileContentResult GetStockImage(int Id)
         {
-            using (StockContext context = new StockContext())
-            {
-                var stock = context.Stocks.FirstOrDefault(x => x.Id == Id);
+                var stock = _stockContext.Stocks.FirstOrDefault(x => x.Id == Id);
                 if (stock != null)
                     return File(stock.Image, stock.MIMEType);
-            }
             return null;
         }
     }

@@ -8,12 +8,9 @@ namespace MiniMarket.Context
 
         public virtual DbSet<Stock> Stocks { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public StockContext(DbContextOptions<StockContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;");
-            }
+
         }
 
     }

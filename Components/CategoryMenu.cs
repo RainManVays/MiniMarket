@@ -12,19 +12,19 @@ namespace MiniMarket.Components
     {
         IMemoryCache _cache;
 
-        public CategoryMenu(IMemoryCache cache)
+        public CategoryMenu(IMemoryCache cache, CategoryContext context)
         {
             _cache = cache;
+            _context = context;
         }
+
+        public CategoryContext _context { get; }
 
         public IViewComponentResult Invoke()
         {
             if (!_cache.TryGetValue(0, out List<Category> category))
             {
-                using (CategoryContext context = new CategoryContext())
-                {
-                    _cache.Set(0, context.Categories.ToList(), TimeSpan.FromHours(1));
-                }
+                    _cache.Set(0, _context.Categories.ToList(), TimeSpan.FromHours(1));
             }
 
             return View("Menu",_cache.Get(0));

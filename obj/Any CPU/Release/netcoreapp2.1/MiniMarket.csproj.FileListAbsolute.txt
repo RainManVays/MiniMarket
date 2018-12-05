@@ -1,0 +1,11 @@
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Any CPU\Release\netcoreapp2.1\MiniMarket.deps.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Any CPU\Release\netcoreapp2.1\MiniMarket.runtimeconfig.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Any CPU\Release\netcoreapp2.1\MiniMarket.runtimeconfig.dev.json
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Any CPU\Release\netcoreapp2.1\MiniMarket.dll
+C:\Users\LDF\Documents\GIT\MiniMarket\bin\Any CPU\Release\netcoreapp2.1\MiniMarket.pdb
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.csproj.CoreCompileInputs.cache
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.AssemblyInfoInputs.cache
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.AssemblyInfo.cs
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.dll
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.pdb
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Any CPU\Release\netcoreapp2.1\MiniMarket.csprojResolveAssemblyReference.cache

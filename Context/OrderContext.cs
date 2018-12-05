@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MiniMarket.Models;
 
 namespace MiniMarket.Context
 {
-    public class OrderContext :DbContext
+    public class OrderContext : DbContext
     {
+        public virtual DbSet<OrderDB> Orders { get; set; }
+
+        public OrderContext(DbContextOptions<OrderContext> options) : base(options)
+        {
+
+        }
     }
 }

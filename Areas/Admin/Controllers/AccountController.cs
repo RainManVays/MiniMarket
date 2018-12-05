@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using MiniMarket.Areas.Admin.Models;
+using MiniMarket.Context;
+using MiniMarket.Infrastructure;
 
 namespace MiniMarket.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AccountController : Controller
     {
+        UserContext _userContext;
+        public AccountController(UserContext userContext)
+        {
+            _userContext = userContext;
+        }
+
         [HttpGet]
         public ViewResult Login()
         {
@@ -23,16 +32,36 @@ namespace MiniMarket.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(Login loginData)
         {
-            if (loginData.UserName.Equals("Admin"))
+
+            var user = _userContext.Users.FirstOrDefault(x => x.Login.Equals(loginData.UserName) && x.IsActive==true);
+            if (user!= null)
             {
-                await Authenticate(loginData.UserName);
-                return RedirectToAction("Index", "Home");
+                if (user.Password.Equals(Crypto.GetStringSha1(loginData.Password)))
+                {
+                    user.AuthorizeCount = 0;
+                    await _userContext.SaveChangesAsync();
+                    await Authenticate(loginData.UserName, loginData.Password);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    if (user.AuthorizeCount >= 5)
+                    {
+                        user.IsActive = false;
+                        ModelState.AddModelError("", "Your account was locked!");
+                    }
+                    else
+                    {
+                        user.AuthorizeCount++;
+                    }
+                    await _userContext.SaveChangesAsync();
+                }
             }
             ModelState.AddModelError("", "Incorrect login or password");
             return View(loginData);
         }
 
-        private async Task Authenticate(string userName)
+        private async Task Authenticate(string userName,string password)
         {
             var claim = new List<Claim>
             {

@@ -36,38 +36,38 @@
 
             @foreach (OrderItem item in Model.Items)
     {
-            <tr>
+        <tr>
 
-                <td>
-                    @if (item.Product.Image != null)
+            <td>
+                @if (item.Product.Image != null)
         {
             <img class="card-img-top order_product__item-image" src="@Url.Action("GetProductImage", "Product", new { item.Product.Id })" />
 
 }
 else
 {
-            <div class="product__item-image"> NAN</div>
+        <div class="product__item-image"> NAN</div>
 }
-                </td>
-                <td>
-                    @item.Product.Name
-                </td>
-                <td>
-                    @Html.ActionLink("-", "DecreaseCount", "Order", new { Id = item.Product.Id })
-                    @item.Count
-                    @Html.ActionLink("+", "IncreaseCount", "Order", new { Id = item.Product.Id })
-                </td>
-                <td>
-                    @item.Product.Price
-                </td>
-                <td>
-                    @(item.Product.Price * item.Count)
-                </td>
-                <td>
-                    @Html.ActionLink("X", "RemoveItem", "Order",new {Id=item.Product.Id})
-                </td>
-                @{totalPrice += item.Product.Price * item.Count;}
-            </tr>
+            </td>
+            <td>
+                @item.Product.Name
+            </td>
+            <td>
+                @Html.ActionLink("-", "DecreaseCount", "Order", new { Id = item.Product.Id })
+                @item.Count
+                @Html.ActionLink("+", "IncreaseCount", "Order", new { Id = item.Product.Id })
+            </td>
+            <td>
+                @item.Product.Price
+            </td>
+            <td>
+                @(item.Product.Price * item.Count)
+            </td>
+            <td>
+                @Html.ActionLink("X", "RemoveItem", "Order", new { Id = item.Product.Id })
+            </td>
+            @{totalPrice += item.Product.Price * item.Count;}
+        </tr>
 }
             <tr>
                 <td></td>
@@ -84,11 +84,20 @@ else
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>
-                </td>
-                <td>
+     @using (Html.BeginForm("AddAdress", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
 
-                    @Html.ActionLink("Отправить заказ", "Complete", "Order")
+                        for (int i = 0; i < Model.Items.Count; i++)
+                        {
+                                @Html.HiddenFor(x => x.Items[i].Count)
+                                @Html.HiddenFor(x => x.Items[i].Product.Id)
+                        }
+                <div class="form-group">
+                    <input type="submit" value="Отправить заказ" class="btn btn-default" />
+                </div>
+    }
                 </td>
             </tr>
         </tbody>

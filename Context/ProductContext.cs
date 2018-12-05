@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniMarket.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MiniMarket.Context
 {
@@ -12,12 +8,9 @@ namespace MiniMarket.Context
 
         public virtual DbSet<Product> Products { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ProductContext(DbContextOptions<ProductContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;");
-            }
+
         }
 
     }

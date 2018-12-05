@@ -7,13 +7,10 @@ namespace MiniMarket.Context
     public class CategoryContext :DbContext
     {
         public virtual DbSet<Category> Categories { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        
+        public CategoryContext(DbContextOptions<CategoryContext> options) : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MiniMarket;Trusted_Connection=True;");
-            }
+
         }
     }
 }
