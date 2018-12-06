@@ -20,12 +20,15 @@ namespace MiniMarket.Models
         public Address(AddressContext addressContext,int AdressId)
         {
            var address= addressContext.Address.FirstOrDefault(x => x.Id == AdressId);
-            this.Id = address.Id;
-            this.City = address.City;
-            this.DeliveryAreaId = address.DeliveryAreaId;
-            this.Email = address.Email;
-            this.Phone = address.Phone;
-            this.Street = address.Street;
+            if (address != null)
+            {
+                this.Id = address.Id;
+                this.City = address.City;
+                this.DeliveryAreaId = address.DeliveryAreaId;
+                this.Email = address.Email;
+                this.Phone = address.Phone;
+                this.Street = address.Street;
+            }
         }
     }
 }

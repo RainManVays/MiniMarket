@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MiniMarket.Context;
 using System;
 using System.Collections.Generic;
@@ -19,20 +21,21 @@ namespace MiniMarket.Models
         {
 
         }
-        public Order(OrderDB orderDB)
+        
+        public Order(OrderDB orderDB, AddressContext addressContext)
         {
-
+            ConvertOrderDbToOrder(orderDB, addressContext);
         }
 
-        private void ConvertOrderDbToOrder(OrderDB orderDB)
+        private void ConvertOrderDbToOrder(OrderDB orderDB, AddressContext addressContext)
         {
             this.Id = orderDB.Id;
             //this.DateInsert
             this.Status = orderDB.Status;
             this.ManagerComment = orderDB.ManagerComment;
             this.Description = orderDB.Description;
-            this.Items = ConvertJsonItemsToOrderItems(orderDB.Items);
-            this.Address = new Address(new AddressContext(null), orderDB.AddressId);
+           // this.Items = ConvertJsonItemsToOrderItems(orderDB.Items);
+            this.Address = new Address(addressContext, orderDB.AddressId);
         }
 
         private List<OrderItem> ConvertJsonItemsToOrderItems(string items)

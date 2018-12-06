@@ -85,7 +85,7 @@ using MiniMarket.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(126, 2222, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a22b87952a542b0814b2b7aa6a669f5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c25e1234f5374b7c8bd0bdfa99441ba8", async() => {
                 BeginContext(220, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
@@ -100,7 +100,7 @@ using MiniMarket.Models;
                 WriteLiteral("\r\n\r\n        <div class=\"form-group\">\r\n            <label class=\"control-label\">Город</label>\r\n            ");
                 EndContext();
                 BeginContext(360, 114, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "66fd63a5ca37440fa850cf48b673623f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9d523f859675495c87a13029e31acbf1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -129,7 +129,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n            <span class=\"text-danger\"></span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label class=\"control-label\">Улица</label>\r\n            ");
                 EndContext();
                 BeginContext(641, 136, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f8ba0479b4194e5898ead82a270fc682", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7a9326184e1843eeb730e63b268855db", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -158,7 +158,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n            <span class=\"text-danger\"></span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label class=\"control-label\">Телефон</label>\r\n            ");
                 EndContext();
                 BeginContext(946, 117, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "291f5a1016444640a27ec82b2260b208", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "e8a18d2df16747b7b01b40f93efbc0c2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -187,7 +187,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n            <span class=\"text-danger\"></span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label class=\"control-label\">Email</label>\r\n            ");
                 EndContext();
                 BeginContext(1230, 129, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c0fc85c6e8654288a85eaf55256c57da", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "82658e0e71c14129b7d582587422ab82", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -216,7 +216,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n            <span class=\"text-danger\"></span>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label class=\"control-label\">Дополнительная информация</label>\r\n            ");
                 EndContext();
                 BeginContext(1546, 207, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ce67f6e889fc44b3ab10707e5b1ce5c8", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0f152584edde4cbb9a83452439636148", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -275,7 +275,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("        <div class=\"form-group\">\r\n\r\n            <label class=\"control-label\">Область Доставки</label>\r\n            <br />\r\n            ");
                 EndContext();
                 BeginContext(2140, 105, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed674bf2cfaa40c69566c4a438e5765f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06cc523476624c92b46a156381d95695", async() => {
                     BeginContext(2216, 20, true);
                     WriteLiteral("--выберите область--");
                     EndContext();

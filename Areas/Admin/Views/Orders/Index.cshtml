@@ -31,29 +31,71 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateInsert)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerComment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInsert)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ManagerComment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("AddComment", "AddComment", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("ChangeStatus", "ChangeStatus", new { id = item.Id })
+                </td>
+            </tr>
+            @if (item.Address != null)
+            {
+            <thead>
+                <tr>
+                    <th>
+                        Город
+                    </th>
+                    <th>
+                        Улица
+                    </th>
+                    <th>
+                        Телефон
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Область доставки
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address.DeliveryAreaId)
+                </td>
+            </tr>
+        }
+
+        }
+        </tbody>
+    </table>

@@ -143,7 +143,7 @@ WriteAttributeValue("", 269, Url.Action("GetProductImage","Product",new { Model.
             WriteLiteral("</p>\r\n            </div>\r\n            <div class=\"card-footer bg-transparent\">\r\n                <div class=\"btn-group\">\r\n                    ");
             EndContext();
             BeginContext(830, 473, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "545eb01aaf924e07ad56a7c108e5e47d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bb7547e7c069402c87190cc7e88f5a5a", async() => {
                 BeginContext(897, 26, true);
                 WriteLiteral("\r\n                        ");
                 EndContext();
