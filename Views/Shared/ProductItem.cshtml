@@ -14,7 +14,7 @@
             }
             <div class="card-body">
                 <h4 class="card-title">@Model.Name</h4>
-                <h5 class="card-subtitle">@Model.Price руб / @Model.Weight гр</h5>
+                <h5 class="card-subtitle">@Model.Price р / @Model.Weight гр</h5>
                 <p class="card-text">@Model.Description</p>
             </div>
             <div class="card-footer bg-transparent">
@@ -22,9 +22,12 @@
                     <form asp-action="AddToOrder" asp-controller="Order" method="POST">
                         @Html.AntiForgeryToken()
                         <div>
-                                @Html.HiddenFor(x => x.Id)
+                            @Html.Hidden("controller", ViewContext.RouteData.Values["controller"])
+                            @Html.Hidden("action", ViewContext.RouteData.Values["action"])
+                            @Html.Hidden("value", ViewContext.RouteData.Values["id"])
+                            @Html.HiddenFor(x => x.Id)
                             <div class="form-group">
-                                    <input type="submit" value="Купить" class="btn btn-sm btn-outline-danger" />
+                                <input type="submit" value="Купить" class="btn btn-sm btn-outline-danger" />
                             </div>
                         </div>
                     </form>

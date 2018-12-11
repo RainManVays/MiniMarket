@@ -51,3 +51,4 @@ C:\Users\LDF\Documents\GIT\MiniMarket\obj\Release\netcoreapp2.1\MiniMarket.Razor
 C:\Users\LDF\Documents\GIT\MiniMarket\obj\Release\netcoreapp2.1\MiniMarket.Views.pdb
 C:\Users\LDF\Documents\GIT\MiniMarket\obj\Release\netcoreapp2.1\MiniMarket.csproj.CopyComplete
 C:\Users\LDF\Documents\GIT\MiniMarket\obj\Release\netcoreapp2.1\Razor\Areas\Admin\Views\Orders\Index.g.cshtml.cs
+C:\Users\LDF\Documents\GIT\MiniMarket\obj\Release\netcoreapp2.1\Razor\Views\Order\EndOrder.g.cshtml.cs

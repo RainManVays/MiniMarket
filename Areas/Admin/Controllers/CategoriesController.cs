@@ -69,9 +69,9 @@ namespace MiniMarket.Areas.Admin.Controllers
         {
             try
             {
-                    var item = _context.Categories.FirstOrDefault(x => x.Id == category.Id);
-                    item = category;
-                    await _context.SaveChangesAsync();
+                var item = _context.Categories.FirstOrDefault(x => x.Id == category.Id);
+                item = category;
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch

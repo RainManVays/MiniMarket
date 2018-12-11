@@ -10,17 +10,17 @@
         <div class="form-group">
             <label class="control-label">Город</label>
             <input name="Address.City" asp-for="Address.City" class="form-control" placeholder="Ростов-на-Дону" type="text" />
-            <span class="text-danger"></span>
+            <span class="text-danger" asp-validation-for="Address.City"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Улица</label>
             <input name="Address.Street" asp-for="Address.Street" class="form-control" placeholder="Улица дом, подъезд этаж квартира" type="text" />
-            <span class="text-danger"></span>
+            <span class="text-danger" asp-validation-for="Address.Street"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Телефон</label>
             <input name="Address.Phone" asp-for="Address.Phone" class="form-control" placeholder="в любом формате" type="text" />
-            <span class="text-danger"></span>
+            <span class="text-danger" asp-validation-for="Address.Phone"></span>
         </div>
         <div class="form-group">
             <label class="control-label">Email</label>

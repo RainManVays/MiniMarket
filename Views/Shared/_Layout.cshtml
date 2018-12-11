@@ -12,12 +12,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-4" style="font-size40px;">
-                    <img src="~/images/logo_top.png" />
+                    <a  href="@Url.Action("Index","Home")">
+                        <img src="~/images/logo_top.png" />
+                    </a>
                 </div>
                 <div class="col-4 text-center">
                     РОСТОВ-НА-ДОНУ ул.Жмайлова 4/2
                     <p>Часы работы:с 10:00 - 22:00</p>
-                    
+
                 </div>
                 <div class="col-4 text-center">
                     Бесплатная доставка по ЗЖМ от 650руб
@@ -28,9 +30,10 @@
         <!--container-->
     </div>
 
+
     <nav class="navbar navbar-expand-sm sticky-top navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">
                 <img src="~/images/rollnikoff_mini.png" width="30" height="30" alt="" /> Rollnikoff
             </a>
             <div class="collapse navbar-collapse">
@@ -55,9 +58,9 @@
     <footer class="container-fluid">
         <p>&copy; 2018 - MiniMarket</p>
     </footer>
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

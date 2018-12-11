@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MiniMarket.Context;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -22,26 +23,40 @@ namespace MiniMarket.Models
 
         }
         
-        public Order(OrderDB orderDB, AddressContext addressContext)
+        public Order(OrderDB orderDB, AddressContext addressContext, ProductContext productContext)
         {
-            ConvertOrderDbToOrder(orderDB, addressContext);
+            ConvertOrderDbToOrder(orderDB, addressContext, productContext);
         }
 
-        private void ConvertOrderDbToOrder(OrderDB orderDB, AddressContext addressContext)
+        private void ConvertOrderDbToOrder(OrderDB orderDB, AddressContext addressContext, ProductContext productContext)
         {
             this.Id = orderDB.Id;
             //this.DateInsert
             this.Status = orderDB.Status;
             this.ManagerComment = orderDB.ManagerComment;
             this.Description = orderDB.Description;
-           // this.Items = ConvertJsonItemsToOrderItems(orderDB.Items);
+
+            var orderDbItems=  ConvertJsonItemsToOrderItems(orderDB.Items);
+            List<OrderItem> orderItems = new List<OrderItem>();
+            foreach(var orderDbItem in orderDbItems)
+            {
+                var product = new Product(productContext, orderDbItem.ProductId);
+                orderItems.Add(new OrderItem
+                {
+                    Product = product,
+                    Count = orderDbItem.Count
+                });
+            };
+            this.Items = orderItems;
+
             this.Address = new Address(addressContext, orderDB.AddressId);
         }
 
-        private List<OrderItem> ConvertJsonItemsToOrderItems(string items)
+        private List<OrderDbItem> ConvertJsonItemsToOrderItems(string items)
         {
-            throw new NotImplementedException();
+            return JsonConvert.DeserializeObject<List<OrderDbItem>>(items);
         }
+
     }
     public class OrderItem
     {

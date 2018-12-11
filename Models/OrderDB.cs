@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MiniMarket.Models
+﻿namespace MiniMarket.Models
 {
     public class OrderDB
     {

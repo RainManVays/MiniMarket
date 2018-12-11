@@ -22,8 +22,4 @@
     <Folder Include="Static\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\images\Ravenclav.jpg" />
-  </ItemGroup>
-
 </Project>

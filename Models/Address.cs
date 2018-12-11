@@ -1,4 +1,5 @@
-using MiniMarket.Context;
+﻿using MiniMarket.Context;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace MiniMarket.Models
@@ -6,8 +7,14 @@ namespace MiniMarket.Models
     public class Address
     {
         public int Id { get; set; }
+       // [StringLength(50)]
         public string City { get; set; }
+       // [Required]
+       // [StringLength(200, ErrorMessage = "Слишком длинный адрес")]
         public string Street { get; set; }
+
+       // [Required]
+       // [StringLength(20,ErrorMessage ="Слишком длинный номер")]
         public string Phone { get; set; }
         public string Email { get; set; }
         public int DeliveryAreaId { get; set; }

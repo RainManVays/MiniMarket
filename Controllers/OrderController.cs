@@ -28,7 +28,7 @@ namespace MiniMarket.Controllers
             _orderContext = orderContext;
         }
 
-        public ActionResult AddToOrder(int Id,string returnUrl)
+        public ActionResult AddToOrder(int Id,string controller,string action,string value)
         {
             return IncreaseCount(Id);
         }
@@ -101,17 +101,25 @@ namespace MiniMarket.Controllers
         [HttpPost]
         public IActionResult CompleteOrder(Order order)
         {
-            SaveOrder(order);
-            ClearOrder();
-            return RedirectToAction("EndOrder");
+            if (SaveOrder(order))
+            {
+                ClearOrder();
+                return RedirectToAction("EndOrder");
+            }
+            ViewBag.DeliveryAreas = new SelectList(_deliveryAreaContext.DeliveryAreas.ToList(), "Id", "Name");
+            return View("CompleteOrder", order);
         }
         public IActionResult EndOrder()
         {
             return View();
         }
 
-        private void SaveOrder(Order order)
+        private bool SaveOrder(Order order)
         {
+            if (!ModelState.IsValid)
+            {
+                return false;
+            }
             var addressId =SaveAddressAsync(order.Address).Result;
             var orderDb = new OrderDB();
             var orderDbItem = _orderContext.Orders.FirstOrDefault();
@@ -133,8 +141,9 @@ namespace MiniMarket.Controllers
             orderDb.Items= JsonConvert.SerializeObject(productDbList);
             _orderContext.Add(orderDb);
             _orderContext.SaveChanges();
-            
-           // SaveOrderInformation()
+
+            // SaveOrderInformation()
+            return true;
         }
 
         private async Task<int> SaveAddressAsync(Address address)
